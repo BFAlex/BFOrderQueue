@@ -14,7 +14,6 @@
 
 @interface BFOrderAssistant : NSObject
 
-//+ (instancetype)defaultOrderAssistant;
 + (instancetype)assistant;
 - (BOOL)addOrder:(BFOrderItem *)order;
 - (void)cancelAllOrders;
