@@ -18,6 +18,7 @@
 		C4E5AE0C21D75D6B007895E0 /* BFNetworkOrderAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E5AE0721D75D6B007895E0 /* BFNetworkOrderAssistant.m */; };
 		C4E5AE0D21D75D6B007895E0 /* BFOrderAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E5AE0921D75D6B007895E0 /* BFOrderAssistant.m */; };
 		C4E5AE0E21D75D6B007895E0 /* BFOrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E5AE0B21D75D6B007895E0 /* BFOrderItem.m */; };
+		C4E5AE1221D767B2007895E0 /* OrderAssisantSample.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E5AE1121D767B2007895E0 /* OrderAssisantSample.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		C4E5AE0921D75D6B007895E0 /* BFOrderAssistant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFOrderAssistant.m; sourceTree = "<group>"; };
 		C4E5AE0A21D75D6B007895E0 /* BFOrderItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFOrderItem.h; sourceTree = "<group>"; };
 		C4E5AE0B21D75D6B007895E0 /* BFOrderItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFOrderItem.m; sourceTree = "<group>"; };
+		C4E5AE1021D767B2007895E0 /* OrderAssisantSample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderAssisantSample.h; sourceTree = "<group>"; };
+		C4E5AE1121D767B2007895E0 /* OrderAssisantSample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderAssisantSample.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,7 @@
 		C4BE03FB214F988D001AD523 /* BFOrderQueue */ = {
 			isa = PBXGroup;
 			children = (
+				C4E5AE0F21D7675A007895E0 /* Sample */,
 				C4E5AE0521D75D6B007895E0 /* OrderQueue */,
 				C4E5ADFE21D755D4007895E0 /* OrderQueue2 */,
 				C4BE03FC214F988D001AD523 /* AppDelegate.h */,
@@ -110,6 +114,15 @@
 				C4E5AE0B21D75D6B007895E0 /* BFOrderItem.m */,
 			);
 			path = OrderQueue;
+			sourceTree = "<group>";
+		};
+		C4E5AE0F21D7675A007895E0 /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				C4E5AE1021D767B2007895E0 /* OrderAssisantSample.h */,
+				C4E5AE1121D767B2007895E0 /* OrderAssisantSample.m */,
+			);
+			path = Sample;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +198,7 @@
 				C4E5AE0D21D75D6B007895E0 /* BFOrderAssistant.m in Sources */,
 				C4E5AE0C21D75D6B007895E0 /* BFNetworkOrderAssistant.m in Sources */,
 				C4E5AE0121D755F2007895E0 /* BFSOrderAssistant.m in Sources */,
+				C4E5AE1221D767B2007895E0 /* OrderAssisantSample.m in Sources */,
 				C4E5AE0E21D75D6B007895E0 /* BFOrderItem.m in Sources */,
 				C4BE0401214F988D001AD523 /* ViewController.m in Sources */,
 				C4BE040C214F9893001AD523 /* main.m in Sources */,

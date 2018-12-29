@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)addOrder:(BFSOrderItem *)order;
 - (void)cancelAllOrders;
 
+//- (NSObject *)synchronizeExecuteOrder:(BFSOrderItem *)order;
+
 @end
 
 NS_ASSUME_NONNULL_END

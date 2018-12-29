@@ -57,7 +57,6 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         assistant = [[BFSOrderAssistant alloc] init];
-        [assistant configInstance];
     });
     
     return assistant;
@@ -80,6 +79,15 @@
 }
 
 #pragma mark - Feature
+
+- (instancetype)init {
+    
+    if (self = [super init]) {
+        [self configInstance];
+    }
+    
+    return self;
+}
 
 - (void)configInstance {
     
@@ -124,14 +132,7 @@
         
         BFSOrderItem *executeOrder = [self searchOrderForHighterProperty:self.ordersOfConcurrent];
         
-        /**
-         增加具体的网络指令内容
-         */
-        executeOrder.taskBlock();
-        // Sample
-        NSLog(@"执行指令线程：%@", [NSThread currentThread]);
-        NSLog(@"在这里执行了网络指令【order index:%lu, priority:%d】\n", (unsigned long)executeOrder.testIndex, executeOrder.orderPrority);
-        [NSThread sleepForTimeInterval:1.f];
+        [self synchronizeExecuteOrder:executeOrder];
         
         
         [self.lockOfNetwork lock];
@@ -141,4 +142,24 @@
     _curOperationCount--;
     [self.lockOfNetwork unlock];
 }
+
+#pragma mark - 任务处理方法
+/**
+ 子类重写方法
+ */
+
+- (id)synchronizeExecuteOrder:(BFSOrderItem *)order {
+    
+    /**
+     增加具体的网络指令内容
+     */
+    order.taskBlock();
+    // Sample
+    NSLog(@"执行指令线程：%@", [NSThread currentThread]);
+    NSLog(@"在这里执行了网络指令【order index:%lu, priority:%d】\n", (unsigned long)order.testIndex, order.orderPrority);
+    [NSThread sleepForTimeInterval:1.f];
+    
+    return nil;
+}
+
 @end
