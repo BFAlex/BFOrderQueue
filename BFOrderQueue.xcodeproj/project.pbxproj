@@ -13,12 +13,12 @@
 		C4BE0406214F9893001AD523 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4BE0405214F9893001AD523 /* Assets.xcassets */; };
 		C4BE0409214F9893001AD523 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4BE0407214F9893001AD523 /* LaunchScreen.storyboard */; };
 		C4BE040C214F9893001AD523 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BE040B214F9893001AD523 /* main.m */; };
-		C4E5AE0121D755F2007895E0 /* BFSOrderAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E5AE0021D755F2007895E0 /* BFSOrderAssistant.m */; };
-		C4E5AE0421D7563D007895E0 /* BFSOrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E5AE0321D7563D007895E0 /* BFSOrderItem.m */; };
 		C4E5AE0C21D75D6B007895E0 /* BFNetworkOrderAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E5AE0721D75D6B007895E0 /* BFNetworkOrderAssistant.m */; };
 		C4E5AE0D21D75D6B007895E0 /* BFOrderAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E5AE0921D75D6B007895E0 /* BFOrderAssistant.m */; };
 		C4E5AE0E21D75D6B007895E0 /* BFOrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E5AE0B21D75D6B007895E0 /* BFOrderItem.m */; };
 		C4E5AE1221D767B2007895E0 /* OrderAssisantSample.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E5AE1121D767B2007895E0 /* OrderAssisantSample.m */; };
+		C4E5AE1821D76F1D007895E0 /* BFSOrderAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E5AE1521D76F1C007895E0 /* BFSOrderAssistant.m */; };
+		C4E5AE1921D76F1D007895E0 /* BFSOrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E5AE1721D76F1C007895E0 /* BFSOrderItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,10 +32,6 @@
 		C4BE0408214F9893001AD523 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4BE040A214F9893001AD523 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4BE040B214F9893001AD523 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C4E5ADFF21D755F2007895E0 /* BFSOrderAssistant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BFSOrderAssistant.h; sourceTree = "<group>"; };
-		C4E5AE0021D755F2007895E0 /* BFSOrderAssistant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BFSOrderAssistant.m; sourceTree = "<group>"; };
-		C4E5AE0221D7563D007895E0 /* BFSOrderItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BFSOrderItem.h; sourceTree = "<group>"; };
-		C4E5AE0321D7563D007895E0 /* BFSOrderItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BFSOrderItem.m; sourceTree = "<group>"; };
 		C4E5AE0621D75D6B007895E0 /* BFNetworkOrderAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFNetworkOrderAssistant.h; sourceTree = "<group>"; };
 		C4E5AE0721D75D6B007895E0 /* BFNetworkOrderAssistant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFNetworkOrderAssistant.m; sourceTree = "<group>"; };
 		C4E5AE0821D75D6B007895E0 /* BFOrderAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFOrderAssistant.h; sourceTree = "<group>"; };
@@ -44,6 +40,10 @@
 		C4E5AE0B21D75D6B007895E0 /* BFOrderItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFOrderItem.m; sourceTree = "<group>"; };
 		C4E5AE1021D767B2007895E0 /* OrderAssisantSample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderAssisantSample.h; sourceTree = "<group>"; };
 		C4E5AE1121D767B2007895E0 /* OrderAssisantSample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderAssisantSample.m; sourceTree = "<group>"; };
+		C4E5AE1421D76F1C007895E0 /* BFSOrderAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFSOrderAssistant.h; sourceTree = "<group>"; };
+		C4E5AE1521D76F1C007895E0 /* BFSOrderAssistant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFSOrderAssistant.m; sourceTree = "<group>"; };
+		C4E5AE1621D76F1C007895E0 /* BFSOrderItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFSOrderItem.h; sourceTree = "<group>"; };
+		C4E5AE1721D76F1C007895E0 /* BFSOrderItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFSOrderItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +78,7 @@
 			children = (
 				C4E5AE0F21D7675A007895E0 /* Sample */,
 				C4E5AE0521D75D6B007895E0 /* OrderQueue */,
-				C4E5ADFE21D755D4007895E0 /* OrderQueue2 */,
+				C4E5AE1321D76F1C007895E0 /* OrderQueue(重构) */,
 				C4BE03FC214F988D001AD523 /* AppDelegate.h */,
 				C4BE03FD214F988D001AD523 /* AppDelegate.m */,
 				C4BE03FF214F988D001AD523 /* ViewController.h */,
@@ -90,17 +90,6 @@
 				C4BE040B214F9893001AD523 /* main.m */,
 			);
 			path = BFOrderQueue;
-			sourceTree = "<group>";
-		};
-		C4E5ADFE21D755D4007895E0 /* OrderQueue2 */ = {
-			isa = PBXGroup;
-			children = (
-				C4E5ADFF21D755F2007895E0 /* BFSOrderAssistant.h */,
-				C4E5AE0021D755F2007895E0 /* BFSOrderAssistant.m */,
-				C4E5AE0221D7563D007895E0 /* BFSOrderItem.h */,
-				C4E5AE0321D7563D007895E0 /* BFSOrderItem.m */,
-			);
-			path = OrderQueue2;
 			sourceTree = "<group>";
 		};
 		C4E5AE0521D75D6B007895E0 /* OrderQueue */ = {
@@ -123,6 +112,17 @@
 				C4E5AE1121D767B2007895E0 /* OrderAssisantSample.m */,
 			);
 			path = Sample;
+			sourceTree = "<group>";
+		};
+		C4E5AE1321D76F1C007895E0 /* OrderQueue(重构) */ = {
+			isa = PBXGroup;
+			children = (
+				C4E5AE1421D76F1C007895E0 /* BFSOrderAssistant.h */,
+				C4E5AE1521D76F1C007895E0 /* BFSOrderAssistant.m */,
+				C4E5AE1621D76F1C007895E0 /* BFSOrderItem.h */,
+				C4E5AE1721D76F1C007895E0 /* BFSOrderItem.m */,
+			);
+			path = "OrderQueue(重构)";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,13 +197,13 @@
 			files = (
 				C4E5AE0D21D75D6B007895E0 /* BFOrderAssistant.m in Sources */,
 				C4E5AE0C21D75D6B007895E0 /* BFNetworkOrderAssistant.m in Sources */,
-				C4E5AE0121D755F2007895E0 /* BFSOrderAssistant.m in Sources */,
 				C4E5AE1221D767B2007895E0 /* OrderAssisantSample.m in Sources */,
 				C4E5AE0E21D75D6B007895E0 /* BFOrderItem.m in Sources */,
 				C4BE0401214F988D001AD523 /* ViewController.m in Sources */,
 				C4BE040C214F9893001AD523 /* main.m in Sources */,
 				C4BE03FE214F988D001AD523 /* AppDelegate.m in Sources */,
-				C4E5AE0421D7563D007895E0 /* BFSOrderItem.m in Sources */,
+				C4E5AE1921D76F1D007895E0 /* BFSOrderItem.m in Sources */,
+				C4E5AE1821D76F1D007895E0 /* BFSOrderAssistant.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

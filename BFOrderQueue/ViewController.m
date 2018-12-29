@@ -80,10 +80,10 @@
         [self.orderAssistant2 addOrder:orderItem];
     }
     NSLog(@"添加完成所有指令");
-    [NSTimer scheduledTimerWithTimeInterval:5 repeats:NO block:^(NSTimer * _Nonnull timer) {
-        [self.orderAssistant2 cancelAllOrders];
-        NSLog(@"取消了所有任务");
-    }];
+//    [NSTimer scheduledTimerWithTimeInterval:5 repeats:NO block:^(NSTimer * _Nonnull timer) {
+//        [self.orderAssistant2 cancelAllOrders];
+//        NSLog(@"取消了所有任务");
+//    }];
 }
 
 - (void)testOrderAssistant3 {

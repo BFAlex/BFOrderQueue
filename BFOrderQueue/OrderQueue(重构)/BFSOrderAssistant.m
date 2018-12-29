@@ -132,7 +132,8 @@
         
         BFSOrderItem *executeOrder = [self searchOrderForHighterProperty:self.ordersOfConcurrent];
         
-        [self synchronizeExecuteOrder:executeOrder];
+        id result = [self synchronizeExecuteOrder:executeOrder];
+        [self handOrderResult:result];
         
         
         [self.lockOfNetwork lock];
@@ -145,7 +146,7 @@
 
 #pragma mark - 任务处理方法
 /**
- 子类重写方法
+ 子类重写具体指令操作方法
  */
 
 - (id)synchronizeExecuteOrder:(BFSOrderItem *)order {
@@ -153,13 +154,17 @@
     /**
      增加具体的网络指令内容
      */
+    [NSThread sleepForTimeInterval:1.f];
     order.taskBlock();
     // Sample
     NSLog(@"执行指令线程：%@", [NSThread currentThread]);
-    NSLog(@"在这里执行了网络指令【order index:%lu, priority:%d】\n", (unsigned long)order.testIndex, order.orderPrority);
-    [NSThread sleepForTimeInterval:1.f];
+    NSLog(@"在这里执行了网络指令【order index:%lu, priority:%d】", (unsigned long)order.testIndex, order.orderPrority);
     
     return nil;
+}
+
+- (void)handOrderResult:(id)result {
+    NSLog(@"order操作结果再加工%@...\n", [NSThread currentThread]);
 }
 
 @end

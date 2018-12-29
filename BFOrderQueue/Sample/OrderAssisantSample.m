@@ -30,11 +30,16 @@
     return self;
 }
 
-- (NSObject *)synchronizeExecuteOrder:(BFSOrderItem *)order {
+- (id)synchronizeExecuteOrder:(BFSOrderItem *)order {
 
+    [NSThread sleepForTimeInterval:1.f];
     NSLog(@"重写了同步任务内容");
 
     return nil;
+}
+
+- (void)handOrderResult:(id)result {
+    NSLog(@"在子类中，order操作结果再加工...\n");
 }
 
 @end
