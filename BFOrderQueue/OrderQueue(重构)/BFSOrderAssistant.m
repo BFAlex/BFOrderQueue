@@ -133,7 +133,7 @@
         BFSOrderItem *executeOrder = [self searchOrderForHighterProperty:self.ordersOfConcurrent];
         
         id result = [self synchronizeExecuteOrder:executeOrder];
-        [self handOrderResult:result];
+        [self handOrderResult:result order:executeOrder];
         
         
         [self.lockOfNetwork lock];
@@ -163,8 +163,8 @@
     return nil;
 }
 
-- (void)handOrderResult:(id)result {
-    NSLog(@"order操作结果再加工%@...\n", [NSThread currentThread]);
+- (void)handOrderResult:(id)result order:(BFSOrderItem *)order{
+    NSLog(@"order操作结果再加工%@...", [NSThread currentThread]);
 }
 
 @end

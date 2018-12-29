@@ -10,6 +10,9 @@
 
 @implementation OrderAssisantSample
 
+
+#pragma mark - 需要重构的方法
+
 + (instancetype)assistant {
     
     static OrderAssisantSample *assistant;
@@ -32,13 +35,16 @@
 
 - (id)synchronizeExecuteOrder:(BFSOrderItem *)order {
 
-    [NSThread sleepForTimeInterval:1.f];
+//    [NSThread sleepForTimeInterval:1.f];
+    [super synchronizeExecuteOrder:order];
     NSLog(@"重写了同步任务内容");
 
     return nil;
 }
 
-- (void)handOrderResult:(id)result {
+- (void)handOrderResult:(id)result order:(nonnull BFSOrderItem *)order{
+    
+    [super handOrderResult:result order:order];
     NSLog(@"在子类中，order操作结果再加工...\n");
 }
 

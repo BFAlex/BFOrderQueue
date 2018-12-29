@@ -26,9 +26,23 @@
     // Do any additional setup after loading the view, typically from a nib.
     
 //    [self testOrderAssistant];
-//    [self testOrderAssistant2];
-    [self testOrderAssistant3];
+//    [self testOrderAssistantOfRebuildVersin];
+    [self testOrderAssistantFromSubVersinOfRebuild];
 }
+
+//- (void)testOrderAssistant {
+//
+//    self.orderAssistant = [BFOrderAssistant assistant];
+//    for (int i = 0; i < 10; i++) {
+//        BFOrderItem *orderItem = [BFOrderItem order];
+//        orderItem.orderType = BFOrderTypeNetwork;
+//        orderItem.orderPrority = i % 4;
+//        orderItem.testIndex = i;
+//
+//        [self.orderAssistant addOrder:orderItem];
+//    }
+//    NSLog(@"添加完成所有指令");
+//}
 
 - (void)testOrderAssistant {
 
@@ -51,21 +65,10 @@
     }];
 }
 
-//- (void)testOrderAssistant {
-//
-//    self.orderAssistant = [BFOrderAssistant assistant];
-//    for (int i = 0; i < 10; i++) {
-//        BFOrderItem *orderItem = [BFOrderItem order];
-//        orderItem.orderType = BFOrderTypeNetwork;
-//        orderItem.orderPrority = i % 4;
-//        orderItem.testIndex = i;
-//
-//        [self.orderAssistant addOrder:orderItem];
-//    }
-//    NSLog(@"添加完成所有指令");
-//}
-
-- (void)testOrderAssistant2 {
+/**
+ 重构版
+ */
+- (void)testOrderAssistantOfRebuildVersin {
     
     self.orderAssistant2 = [BFSOrderAssistant assistant];
     for (int i = 0; i < 10; i++) {
@@ -86,7 +89,10 @@
 //    }];
 }
 
-- (void)testOrderAssistant3 {
+/**
+ 重构版子类
+ */
+- (void)testOrderAssistantFromSubVersinOfRebuild {
     
     self.orderAssistant3 = [OrderAssisantSample assistant];
     for (int i = 0; i < 10; i++) {
