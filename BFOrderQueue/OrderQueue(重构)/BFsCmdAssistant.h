@@ -7,20 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BFSOrderItem.h"
+#import "BFsCmdItem.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BFSOrderAssistant : NSObject
+@interface BFsCmdAssistant : NSObject
 
 @property (nonatomic, assign) NSUInteger maxConcurrentOperationCount;
 
 + (instancetype)assistant;
-- (BOOL)addOrder:(BFSOrderItem *)order;
+- (BOOL)addOrder:(BFsCmdItem *)order;
 - (void)cancelAllOrders;
 
-- (id)synchronizeExecuteOrder:(BFSOrderItem *)order;
-- (void)handOrderResult:(id)result order:(BFSOrderItem *)order;
+- (id)synchronizeExecuteOrder:(BFsCmdItem *)order;
+- (void)handOrderResult:(id)result order:(BFsCmdItem *)order;
 
 @end
 

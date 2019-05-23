@@ -33,7 +33,7 @@
     return self;
 }
 
-- (id)synchronizeExecuteOrder:(BFSOrderItem *)order {
+- (id)synchronizeExecuteOrder:(BFsCmdItem *)order {
 
 //    [NSThread sleepForTimeInterval:1.f];
     [super synchronizeExecuteOrder:order];
@@ -42,7 +42,7 @@
     return nil;
 }
 
-- (void)handOrderResult:(id)result order:(nonnull BFSOrderItem *)order{
+- (void)handOrderResult:(id)result order:(nonnull BFsCmdItem *)order{
     
     [super handOrderResult:result order:order];
     NSLog(@"在子类中，order操作结果再加工...\n");

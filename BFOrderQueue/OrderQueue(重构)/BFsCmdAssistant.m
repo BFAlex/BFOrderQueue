@@ -6,16 +6,19 @@
 //  Copyright © 2018年 BFAlex. All rights reserved.
 //
 
-#import "BFSOrderAssistant.h"
+#import "BFsCmdAssistant.h"
 
 #define kAsyncTask(queue, block) dispatch_async(queue, block)
 #define kSyncTask(queue, block) dispatch_sync(queue, block)
 
 #define kMaxConcurrentOperationCount 1  // 任务最大并发数
+#define kCmdOvertime    5.f
 
-@interface BFSOrderAssistant () {
+@interface BFsCmdAssistant () {
     
     int     _curOperationCount; // 同步队列专用参数
+    dispatch_semaphore_t _cmdSemaphore;
+    BFsCmdItem *_curCmdItem;
 }
 
 // GCD
@@ -27,7 +30,7 @@
 
 @end
 
-@implementation BFSOrderAssistant
+@implementation BFsCmdAssistant
 
 #pragma mark - Prpperty
 
@@ -53,16 +56,16 @@
 
 + (instancetype)assistant {
     
-    static BFSOrderAssistant *assistant;
+    static BFsCmdAssistant *assistant;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        assistant = [[BFSOrderAssistant alloc] init];
+        assistant = [[BFsCmdAssistant alloc] init];
     });
     
     return assistant;
 }
 
-- (BOOL)addOrder:(BFSOrderItem *)order {
+- (BOOL)addOrder:(BFsCmdItem *)order {
     
     kAsyncTask(self.concurrentQueue, ^{
         [self addNetworkOrder:order];
@@ -96,13 +99,15 @@
     self.concurrentQueue = dispatch_queue_create([queueName cStringUsingEncoding:NSUTF8StringEncoding], DISPATCH_QUEUE_CONCURRENT);
     self.maxConcurrentOperationCount = kMaxConcurrentOperationCount;
     _curOperationCount = 0;
+    //
+    _cmdSemaphore = dispatch_semaphore_create(1);
 }
 
-- (BFSOrderItem *)searchOrderForHighterProperty:(NSArray *)orders {
+- (BFsCmdItem *)searchOrderForHighterProperty:(NSArray *)orders {
     
-    BFSOrderItem *targetOrder = [orders firstObject];
+    BFsCmdItem *targetOrder = [orders firstObject];
     for (int i = 1; i < orders.count; i++) {
-        BFSOrderItem *tmpOrder = orders[i];
+        BFsCmdItem *tmpOrder = orders[i];
         if (targetOrder.orderPrority < tmpOrder.orderPrority) {
             targetOrder = tmpOrder;
         }
@@ -114,7 +119,7 @@
 /**
  并发队列顺序执行order
  */
-- (void)addNetworkOrder:(BFSOrderItem *)order {
+- (void)addNetworkOrder:(BFsCmdItem *)order {
     NSLog(@"添加任务线程： %@", [NSThread currentThread]);
     [self.lockOfNetwork lock];
     [self.ordersOfConcurrent addObject:order];
@@ -130,14 +135,18 @@
         self.isExecutingNetworkOrder = YES;
         [self.lockOfNetwork unlock];
         
-        BFSOrderItem *executeOrder = [self searchOrderForHighterProperty:self.ordersOfConcurrent];
+        _curCmdItem = [self searchOrderForHighterProperty:self.ordersOfConcurrent];
         
-        id result = [self synchronizeExecuteOrder:executeOrder];
-        [self handOrderResult:result order:executeOrder];
+//        id result = [self synchronizeExecuteOrder:executeOrder];
+//        [self handOrderResult:result order:executeOrder];
+        
+        [self executeCmd:_curCmdItem];
+        [self synchronizeHandleCmdResult:_curCmdItem];
         
         
         [self.lockOfNetwork lock];
-        [self.ordersOfConcurrent removeObject:executeOrder];
+        [self.ordersOfConcurrent removeObject:_curCmdItem];
+        _curCmdItem = nil;
     }
     self.isExecutingNetworkOrder = NO;
     _curOperationCount--;
@@ -149,7 +158,7 @@
  子类重写具体指令操作方法
  */
 
-- (id)synchronizeExecuteOrder:(BFSOrderItem *)order {
+- (id)synchronizeExecuteOrder:(BFsCmdItem *)order {
     
     /**
      增加具体的网络指令内容
@@ -163,8 +172,30 @@
     return nil;
 }
 
-- (void)handOrderResult:(id)result order:(BFSOrderItem *)order{
+- (void)handOrderResult:(id)result order:(BFsCmdItem *)order{
     NSLog(@"order操作结果再加工%@...", [NSThread currentThread]);
+}
+
+// 第二版
+
+- (void)executeCmd:(BFsCmdItem *)cmdItem {
+    
+    cmdItem.taskBlock();
+}
+
+- (void)synchronizeHandleCmdResult:(BFsCmdItem *)cmdItem {
+    
+    BOOL isOvertime = dispatch_semaphore_wait(_cmdSemaphore, kCmdOvertime) != 0;
+    if (isOvertime) {
+        if (cmdItem.resultBlock) {
+            NSDictionary *errDict = @{NSLocalizedDescriptionKey : NSLocalizedString(@"cmd overtime", nil)};
+            NSError *error = [NSError errorWithDomain:NSURLErrorDomain code:1234 userInfo:errDict];
+            cmdItem.resultBlock(error, nil);
+        }
+    }
+//    else {
+//        // 在数据接收处理位置调用cmdItem.resultBlock
+//    }
 }
 
 @end

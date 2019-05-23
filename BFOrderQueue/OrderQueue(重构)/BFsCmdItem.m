@@ -6,15 +6,15 @@
 //  Copyright © 2018年 BFAlex. All rights reserved.
 //
 
-#import "BFSOrderItem.h"
+#import "BFsCmdItem.h"
 
-@implementation BFSOrderItem
+@implementation BFsCmdItem
 
 #pragma mark - API
 
-+ (instancetype)order {
++ (instancetype)cmdItem {
     
-    BFSOrderItem *order = [[BFSOrderItem alloc] init];
+    BFsCmdItem *order = [[BFsCmdItem alloc] init];
     if (order) {
         [order setupDefault];
     }
@@ -26,7 +26,7 @@
 
 - (void)setupDefault {
     
-    self.orderPrority = BFSOrderPriorityNormal;
+    self.orderPrority = BFsCmdPriorityNormal;
 }
 
 @end

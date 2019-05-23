@@ -17,11 +17,12 @@
 		C4E5AE0D21D75D6B007895E0 /* BFOrderAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E5AE0921D75D6B007895E0 /* BFOrderAssistant.m */; };
 		C4E5AE0E21D75D6B007895E0 /* BFOrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E5AE0B21D75D6B007895E0 /* BFOrderItem.m */; };
 		C4E5AE1221D767B2007895E0 /* OrderAssisantSample.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E5AE1121D767B2007895E0 /* OrderAssisantSample.m */; };
-		C4E5AE1821D76F1D007895E0 /* BFSOrderAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E5AE1521D76F1C007895E0 /* BFSOrderAssistant.m */; };
-		C4E5AE1921D76F1D007895E0 /* BFSOrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E5AE1721D76F1C007895E0 /* BFSOrderItem.m */; };
+		C4E5AE1821D76F1D007895E0 /* BFsCmdAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E5AE1521D76F1C007895E0 /* BFsCmdAssistant.m */; };
+		C4E5AE1921D76F1D007895E0 /* BFsCmdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E5AE1721D76F1C007895E0 /* BFsCmdItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C48E6F132296C907009561AA /* BFsCmdHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BFsCmdHeader.h; sourceTree = "<group>"; };
 		C4BE03F9214F988D001AD523 /* BFOrderQueue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BFOrderQueue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4BE03FC214F988D001AD523 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C4BE03FD214F988D001AD523 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -40,10 +41,10 @@
 		C4E5AE0B21D75D6B007895E0 /* BFOrderItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFOrderItem.m; sourceTree = "<group>"; };
 		C4E5AE1021D767B2007895E0 /* OrderAssisantSample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderAssisantSample.h; sourceTree = "<group>"; };
 		C4E5AE1121D767B2007895E0 /* OrderAssisantSample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderAssisantSample.m; sourceTree = "<group>"; };
-		C4E5AE1421D76F1C007895E0 /* BFSOrderAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFSOrderAssistant.h; sourceTree = "<group>"; };
-		C4E5AE1521D76F1C007895E0 /* BFSOrderAssistant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFSOrderAssistant.m; sourceTree = "<group>"; };
-		C4E5AE1621D76F1C007895E0 /* BFSOrderItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFSOrderItem.h; sourceTree = "<group>"; };
-		C4E5AE1721D76F1C007895E0 /* BFSOrderItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFSOrderItem.m; sourceTree = "<group>"; };
+		C4E5AE1421D76F1C007895E0 /* BFsCmdAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFsCmdAssistant.h; sourceTree = "<group>"; };
+		C4E5AE1521D76F1C007895E0 /* BFsCmdAssistant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFsCmdAssistant.m; sourceTree = "<group>"; };
+		C4E5AE1621D76F1C007895E0 /* BFsCmdItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFsCmdItem.h; sourceTree = "<group>"; };
+		C4E5AE1721D76F1C007895E0 /* BFsCmdItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFsCmdItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,10 +118,11 @@
 		C4E5AE1321D76F1C007895E0 /* OrderQueue(重构) */ = {
 			isa = PBXGroup;
 			children = (
-				C4E5AE1421D76F1C007895E0 /* BFSOrderAssistant.h */,
-				C4E5AE1521D76F1C007895E0 /* BFSOrderAssistant.m */,
-				C4E5AE1621D76F1C007895E0 /* BFSOrderItem.h */,
-				C4E5AE1721D76F1C007895E0 /* BFSOrderItem.m */,
+				C4E5AE1421D76F1C007895E0 /* BFsCmdAssistant.h */,
+				C4E5AE1521D76F1C007895E0 /* BFsCmdAssistant.m */,
+				C48E6F132296C907009561AA /* BFsCmdHeader.h */,
+				C4E5AE1621D76F1C007895E0 /* BFsCmdItem.h */,
+				C4E5AE1721D76F1C007895E0 /* BFsCmdItem.m */,
 			);
 			path = "OrderQueue(重构)";
 			sourceTree = "<group>";
@@ -202,8 +204,8 @@
 				C4BE0401214F988D001AD523 /* ViewController.m in Sources */,
 				C4BE040C214F9893001AD523 /* main.m in Sources */,
 				C4BE03FE214F988D001AD523 /* AppDelegate.m in Sources */,
-				C4E5AE1921D76F1D007895E0 /* BFSOrderItem.m in Sources */,
-				C4E5AE1821D76F1D007895E0 /* BFSOrderAssistant.m in Sources */,
+				C4E5AE1921D76F1D007895E0 /* BFsCmdItem.m in Sources */,
+				C4E5AE1821D76F1D007895E0 /* BFsCmdAssistant.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

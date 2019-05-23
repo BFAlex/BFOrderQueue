@@ -9,12 +9,12 @@
 #import "ViewController.h"
 #import "BFOrderAssistant.h"
 #import "BFNetworkOrderAssistant.h"
-#import "BFSOrderAssistant.h"
+#import "BFsCmdAssistant.h"
 #import "OrderAssisantSample.h"
 
 @interface ViewController ()
 @property (nonatomic, strong) BFOrderAssistant *orderAssistant;
-@property (nonatomic, strong) BFSOrderAssistant *orderAssistant2;
+@property (nonatomic, strong) BFsCmdAssistant *orderAssistant2;
 @property (nonatomic, strong) OrderAssisantSample *orderAssistant3;
 
 @end
@@ -70,10 +70,10 @@
  */
 - (void)testOrderAssistantOfRebuildVersin {
     
-    self.orderAssistant2 = [BFSOrderAssistant assistant];
+    self.orderAssistant2 = [BFsCmdAssistant assistant];
     for (int i = 0; i < 10; i++) {
-        BFSOrderItem *orderItem = [BFSOrderItem order];
-        orderItem.orderType = BFSOrderTypeNetwork;
+        BFsCmdItem *orderItem = [BFsCmdItem cmdItem];
+        orderItem.orderType = BFsCmdTypeNetwork;
         orderItem.orderPrority = i % 4;
         orderItem.testIndex = i;
         orderItem.taskBlock = ^{
@@ -96,8 +96,8 @@
     
     self.orderAssistant3 = [OrderAssisantSample assistant];
     for (int i = 0; i < 10; i++) {
-        BFSOrderItem *orderItem = [BFSOrderItem order];
-        orderItem.orderType = BFSOrderTypeNetwork;
+        BFsCmdItem *orderItem = [BFsCmdItem cmdItem];
+        orderItem.orderType = BFsCmdTypeNetwork;
         orderItem.orderPrority = i % 4;
         orderItem.testIndex = i;
         orderItem.taskBlock = ^{
