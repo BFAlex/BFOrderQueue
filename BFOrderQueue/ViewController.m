@@ -11,6 +11,7 @@
 #import "BFNetworkOrderAssistant.h"
 #import "BFsCmdAssistant.h"
 #import "OrderAssisantSample.h"
+#import "BFsCmdTestVC.h"
 
 @interface ViewController ()
 @property (nonatomic, strong) BFOrderAssistant *orderAssistant;
@@ -27,7 +28,8 @@
     
 //    [self testOrderAssistant];
 //    [self testOrderAssistantOfRebuildVersin];
-    [self testOrderAssistantFromSubVersinOfRebuild];
+//    [self testOrderAssistantFromSubVersinOfRebuild];
+    [self testCmdTestModule];
 }
 
 //- (void)testOrderAssistant {
@@ -109,5 +111,10 @@
     NSLog(@"添加完成所有指令");
 }
 
+- (void)testCmdTestModule {
+    
+    BFsCmdTestVC *cmdVC = [[BFsCmdTestVC alloc] init];
+    [self.navigationController pushViewController:cmdVC animated:YES];
+}
 
 @end
