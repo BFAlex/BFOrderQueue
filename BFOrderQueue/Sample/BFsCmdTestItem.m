@@ -6,8 +6,8 @@
 //  Copyright © 2019 BFAlex. All rights reserved.
 //
 
-#import "BFsCmdItem.h"
+#import "BFsCmdTestItem.h"
 
-@implementation BFsCmdItem
+@implementation BFsCmdTestItem
 
 @end

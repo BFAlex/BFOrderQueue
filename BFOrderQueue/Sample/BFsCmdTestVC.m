@@ -7,7 +7,7 @@
 //
 
 #import "BFsCmdTestVC.h"
-#import "BFsCmdItem.h"
+#import "BFsCmdTestItem.h"
 
 @interface BFsCmdTestVC () {
     int _itemIndex;
@@ -15,9 +15,9 @@
     
 }
 @property (nonatomic, strong) dispatch_queue_t cmdQueue;
-@property (nonatomic, strong) NSMutableArray *cmdArr;
+@property (nonatomic, strong) __block NSMutableArray *cmdArr;
 @property (nonatomic, strong) NSLock *cmdArrLock;
-@property (nonatomic, strong) NSConditionLock *cmdOperateLock;
+@property (nonatomic, strong) NSCondition *cmdOperateLock;
 
 @end
 
@@ -37,7 +37,7 @@
     _cmdQueue = dispatch_queue_create("com.bf.cmd.queue", DISPATCH_QUEUE_CONCURRENT);
     _cmdArr = [[NSMutableArray alloc] init];
     _cmdArrLock = [[NSLock alloc] init];
-    _cmdOperateLock = [[NSConditionLock alloc] init];
+    _cmdOperateLock = [[NSCondition alloc] init];
     
     //
     _itemIndex = 0;
@@ -47,6 +47,8 @@
 #pragma mark UI
 
 - (void)configSubviews {
+    
+    self.view.backgroundColor = [UIColor blueColor];
     
     UIButton *taskBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     CGRect taskFrame = CGRectMake(10.f, 100.f, 100.f, 100.f);
@@ -67,10 +69,11 @@
 
 - (void)actionTaskButton:(id)sender {
     NSLog(@"[%@ %@]", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-    BFsCmdItem *cmdItem = [[BFsCmdItem alloc] init];
+    BFsCmdTestItem *cmdItem = [[BFsCmdTestItem alloc] init];
     cmdItem.cmdIndex = _itemIndex;
+    int tmpIndex = _itemIndex;
     cmdItem.taskBlock = ^{
-        NSLog(@"task: %d", self->_itemIndex);
+        NSLog(@"working task: %d", tmpIndex);
     };
     cmdItem.resultBlock = ^(id value, NSError *error) {
         NSLog(@"cmd value:%@", value);
@@ -81,19 +84,27 @@
 
 - (void)actionWorkButton:(id)sender {
     NSLog(@"[%@ %@]", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    if (_isCmdWorking) {
+        [_cmdOperateLock lock];
+        [_cmdOperateLock signal];
+        [_cmdOperateLock unlock];
+    }
 }
 
 #pragma mark - CMD
 
-- (void)addCmdItem:(BFsCmdItem *)cmdItem {
+- (void)addCmdItem:(BFsCmdTestItem *)cmdItem {
     
     [_cmdArrLock lock];
     [_cmdArr addObject:cmdItem];
+    NSLog(@"增加了cmd:%d", cmdItem.cmdIndex);
     [_cmdArrLock unlock];
     
     if (_cmdArr.count > 0 && !_isCmdWorking) {
         _isCmdWorking = YES;
+//        NSLog(@"add cmd thread: %@", [NSThread currentThread]);
         dispatch_async(_cmdQueue, ^{
+//            NSLog(@"work cmd thread: %@", [NSThread currentThread]);
             [self startCmdWork];
         });
     }
@@ -102,16 +113,33 @@
 - (void)startCmdWork {
     
     while (_cmdArr.count > 0) {
-        BFsCmdItem *cmdItem = _cmdArr[0];
+        BFsCmdTestItem *cmdItem = _cmdArr[0];
         [_cmdArrLock unlock];
-        [_cmdArr removeObject:cmdItem];
+//        [_cmdArr removeObject:cmdItem];
+        [_cmdArr removeObjectAtIndex:0];
         [_cmdArrLock unlock];
         
-        cmdItem.taskBlock();
-//        [_cmdOperateLock lock];
+        [self workingCmdItem:cmdItem];
+        
+        [_cmdOperateLock lock];
+        // 带超时机制
+        BOOL isInTime = [_cmdOperateLock waitUntilDate:[NSDate dateWithTimeIntervalSinceNow:5.f]];
+        if (isInTime) {
+            NSLog(@"cmd(%d) 没有超时", cmdItem.cmdIndex);
+        } else {
+            NSLog(@"cmd(%d) 超时了", cmdItem.cmdIndex);
+        }
+        // 不超时等待
+//        [_cmdOperateLock wait];
+//        NSLog(@"得到响应(%d)", cmdItem.cmdIndex);
+        [_cmdOperateLock unlock];
         
     }
     _isCmdWorking = NO;
+}
+
+- (void)workingCmdItem:(BFsCmdTestItem *)cmdItem {
+    cmdItem.taskBlock();
 }
 
 @end

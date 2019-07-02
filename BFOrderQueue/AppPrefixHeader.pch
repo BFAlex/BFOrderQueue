@@ -1,0 +1,15 @@
+//
+//  AppPrefixHeader.pch
+//  BFOrderQueue
+//
+//  Created by BFAlex on 2019/7/2.
+//  Copyright © 2019年 BFAlex. All rights reserved.
+//
+
+#ifndef AppPrefixHeader_pch
+#define AppPrefixHeader_pch
+
+#define kTestInfo   @"define test info"
+
+
+#endif /* AppPrefixHeader_pch */

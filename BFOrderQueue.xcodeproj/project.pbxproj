@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9454E81C22CA5E0E003FF982 /* BFsCmdTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9454E81B22CA5E0E003FF982 /* BFsCmdTestVC.m */; };
-		9454E81F22CA66CF003FF982 /* BFsCmdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9454E81E22CA66CF003FF982 /* BFsCmdItem.m */; };
+		C452288922CB4C9300A018EB /* BFsCmdTestItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C452288822CB4C9200A018EB /* BFsCmdTestItem.m */; };
 		C4BE03FE214F988D001AD523 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BE03FD214F988D001AD523 /* AppDelegate.m */; };
 		C4BE0401214F988D001AD523 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BE0400214F988D001AD523 /* ViewController.m */; };
 		C4BE0404214F988D001AD523 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4BE0402214F988D001AD523 /* Main.storyboard */; };
@@ -26,8 +26,9 @@
 /* Begin PBXFileReference section */
 		9454E81A22CA5E0E003FF982 /* BFsCmdTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BFsCmdTestVC.h; sourceTree = "<group>"; };
 		9454E81B22CA5E0E003FF982 /* BFsCmdTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BFsCmdTestVC.m; sourceTree = "<group>"; };
-		9454E81D22CA66CF003FF982 /* BFsCmdItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BFsCmdItem.h; sourceTree = "<group>"; };
-		9454E81E22CA66CF003FF982 /* BFsCmdItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BFsCmdItem.m; sourceTree = "<group>"; };
+		C452288622CB4A5A00A018EB /* AppPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppPrefixHeader.pch; sourceTree = "<group>"; };
+		C452288722CB4C9200A018EB /* BFsCmdTestItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFsCmdTestItem.h; sourceTree = "<group>"; };
+		C452288822CB4C9200A018EB /* BFsCmdTestItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFsCmdTestItem.m; sourceTree = "<group>"; };
 		C48E6F132296C907009561AA /* BFsCmdHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BFsCmdHeader.h; sourceTree = "<group>"; };
 		C4BE03F9214F988D001AD523 /* BFOrderQueue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BFOrderQueue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4BE03FC214F988D001AD523 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -95,6 +96,7 @@
 				C4BE0407214F9893001AD523 /* LaunchScreen.storyboard */,
 				C4BE040A214F9893001AD523 /* Info.plist */,
 				C4BE040B214F9893001AD523 /* main.m */,
+				C452288622CB4A5A00A018EB /* AppPrefixHeader.pch */,
 			);
 			path = BFOrderQueue;
 			sourceTree = "<group>";
@@ -119,8 +121,8 @@
 				C4E5AE1121D767B2007895E0 /* OrderAssisantSample.m */,
 				9454E81A22CA5E0E003FF982 /* BFsCmdTestVC.h */,
 				9454E81B22CA5E0E003FF982 /* BFsCmdTestVC.m */,
-				9454E81D22CA66CF003FF982 /* BFsCmdItem.h */,
-				9454E81E22CA66CF003FF982 /* BFsCmdItem.m */,
+				C452288722CB4C9200A018EB /* BFsCmdTestItem.h */,
+				C452288822CB4C9200A018EB /* BFsCmdTestItem.m */,
 			);
 			path = Sample;
 			sourceTree = "<group>";
@@ -217,7 +219,7 @@
 				C4BE03FE214F988D001AD523 /* AppDelegate.m in Sources */,
 				C4E5AE1921D76F1D007895E0 /* BFsCmdItem.m in Sources */,
 				C4E5AE1821D76F1D007895E0 /* BFsCmdAssistant.m in Sources */,
-				9454E81F22CA66CF003FF982 /* BFsCmdItem.m in Sources */,
+				C452288922CB4C9300A018EB /* BFsCmdTestItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +361,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9V8N93HLK3;
+				GCC_PREFIX_HEADER = "$(PROJECT_NAME)/AppPrefixHeader.pch";
 				INFOPLIST_FILE = BFOrderQueue/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -377,6 +380,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9V8N93HLK3;
+				GCC_PREFIX_HEADER = "$(PROJECT_NAME)/AppPrefixHeader.pch";
 				INFOPLIST_FILE = BFOrderQueue/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (

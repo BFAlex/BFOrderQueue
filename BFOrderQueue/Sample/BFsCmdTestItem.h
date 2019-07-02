@@ -13,7 +13,7 @@ typedef void(^ResultBlock)(id _Nullable value, NSError *error);
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BFsCmdItem : NSObject
+@interface BFsCmdTestItem : NSObject
 @property (nonatomic, assign) int cmdIndex;
 @property (nonatomic, copy) TaskBlock   taskBlock;
 @property (nonatomic, copy) ResultBlock resultBlock;
