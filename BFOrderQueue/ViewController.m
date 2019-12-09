@@ -12,6 +12,7 @@
 #import "BFsCmdAssistant.h"
 #import "OrderAssisantSample.h"
 #import "BFsCmdTestVC.h"
+#import "BFsQueueAssistant.h"
 
 @interface ViewController ()
 @property (nonatomic, strong) BFOrderAssistant *orderAssistant;
@@ -29,7 +30,20 @@
 //    [self testOrderAssistant];
 //    [self testOrderAssistantOfRebuildVersin];
 //    [self testOrderAssistantFromSubVersinOfRebuild];
-    [self testCmdTestModule];
+//    [self testCmdTestModule];
+    [self testOperationQueue];
+}
+
+- (void)testOperationQueue {
+    
+    BFsQueueAssistant *qa = [BFsQueueAssistant sharedInstance];
+    for (int i = 0; i < 10; i++) {
+        NSLog(@"Add task:%d", i);
+        [qa addSerialTask:^{
+            NSLog(@"%@:%d", [NSThread currentThread], i);
+            [NSThread sleepForTimeInterval:2.f];
+        }];
+    }
 }
 
 //- (void)testOrderAssistant {

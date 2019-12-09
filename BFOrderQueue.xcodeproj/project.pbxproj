@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9454E81C22CA5E0E003FF982 /* BFsCmdTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9454E81B22CA5E0E003FF982 /* BFsCmdTestVC.m */; };
+		946CBE91239EA51300123B32 /* BFsQueueAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = 946CBE8F239EA51300123B32 /* BFsQueueAssistant.m */; };
 		C452288922CB4C9300A018EB /* BFsCmdTestItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C452288822CB4C9200A018EB /* BFsCmdTestItem.m */; };
 		C4BE03FE214F988D001AD523 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BE03FD214F988D001AD523 /* AppDelegate.m */; };
 		C4BE0401214F988D001AD523 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BE0400214F988D001AD523 /* ViewController.m */; };
@@ -26,6 +27,8 @@
 /* Begin PBXFileReference section */
 		9454E81A22CA5E0E003FF982 /* BFsCmdTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BFsCmdTestVC.h; sourceTree = "<group>"; };
 		9454E81B22CA5E0E003FF982 /* BFsCmdTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BFsCmdTestVC.m; sourceTree = "<group>"; };
+		946CBE8F239EA51300123B32 /* BFsQueueAssistant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFsQueueAssistant.m; sourceTree = "<group>"; };
+		946CBE90239EA51300123B32 /* BFsQueueAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFsQueueAssistant.h; sourceTree = "<group>"; };
 		C452288622CB4A5A00A018EB /* AppPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppPrefixHeader.pch; sourceTree = "<group>"; };
 		C452288722CB4C9200A018EB /* BFsCmdTestItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFsCmdTestItem.h; sourceTree = "<group>"; };
 		C452288822CB4C9200A018EB /* BFsCmdTestItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFsCmdTestItem.m; sourceTree = "<group>"; };
@@ -65,6 +68,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		946CBE8E239EA4DF00123B32 /* OperationQueue */ = {
+			isa = PBXGroup;
+			children = (
+				946CBE90239EA51300123B32 /* BFsQueueAssistant.h */,
+				946CBE8F239EA51300123B32 /* BFsQueueAssistant.m */,
+			);
+			path = OperationQueue;
+			sourceTree = "<group>";
+		};
 		C4BE03F0214F988D001AD523 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +99,7 @@
 				C4E5AE0F21D7675A007895E0 /* Sample */,
 				C4E5AE0521D75D6B007895E0 /* OrderQueue */,
 				C4E5AE1321D76F1C007895E0 /* OrderQueue(重构) */,
+				946CBE8E239EA4DF00123B32 /* OperationQueue */,
 				C4BE03FC214F988D001AD523 /* AppDelegate.h */,
 				C4BE03FD214F988D001AD523 /* AppDelegate.m */,
 				C4BE03FF214F988D001AD523 /* ViewController.h */,
@@ -213,6 +226,7 @@
 				C4E5AE0C21D75D6B007895E0 /* BFNetworkOrderAssistant.m in Sources */,
 				C4E5AE1221D767B2007895E0 /* OrderAssisantSample.m in Sources */,
 				C4E5AE0E21D75D6B007895E0 /* BFOrderItem.m in Sources */,
+				946CBE91239EA51300123B32 /* BFsQueueAssistant.m in Sources */,
 				C4BE0401214F988D001AD523 /* ViewController.m in Sources */,
 				9454E81C22CA5E0E003FF982 /* BFsCmdTestVC.m in Sources */,
 				C4BE040C214F9893001AD523 /* main.m in Sources */,
